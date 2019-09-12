@@ -1,0 +1,51 @@
+
+
+int sizex = 400;
+int sizey = 400;
+int x = 0;
+int y = 50;
+
+void setup(){
+  size(400, 400);
+  background(250);
+  graph();
+}
+
+int[][] data = {
+  {10,2},{37,4},{86,23},{37,8}, {23,5},{24,9},{51,43},{32,6}, {23,4}, {45,9},{122, 42},{76,26},
+};
+
+int r = int(random(256));
+int g = int(random(256));
+int b = int(random(256));
+
+int vertx = 50;
+int verty = 350-data[0][0];
+
+
+void graph() {
+  fill(50);
+  textSize(15);
+  text("Amount of people doing homework at times of the day", 50,20);
+  
+  fill(250);
+  beginShape();
+  vertex(50,50);
+  vertex(50,350);
+  endShape();
+  
+  fill(r,g,b,200);
+  beginShape();
+  vertex(50,350);
+  
+  for (int i=0; i<data.length; i++) {
+    verty = 350-data[i][0];
+    vertx = vertx + 20;
+    vertex(vertx,verty);
+  } 
+  vertex(350, 350);
+  
+  endShape(CLOSE);
+
+}
+
